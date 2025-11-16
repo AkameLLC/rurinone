@@ -1,0 +1,33 @@
+{
+  "name": "rurinone-monorepo",
+  "version": "1.0.0",
+  "description": "2.5vStream Atlier るりのね - Community Web Service",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:www": "npm run dev --workspace=apps/www",
+    "dev:community": "npm run dev --workspace=apps/community", 
+    "dev:manage": "npm run dev --workspace=apps/manage",
+    "build:www": "npm run build --workspace=apps/www",
+    "build:community": "npm run build --workspace=apps/community",
+    "build:manage": "npm run build --workspace=apps/manage",
+    "build:all": "npm run build:www && npm run build:community && npm run build:manage",
+    "deploy:www": "npm run deploy --workspace=apps/www",
+    "deploy:community": "npm run deploy --workspace=apps/community",
+    "deploy:manage": "npm run deploy --workspace=apps/manage",
+    "deploy:all": "npm run deploy:www && npm run deploy:community && npm run deploy:manage",
+    "db:migrate": "node tools/database/migrate.js",
+    "db:seed": "node tools/database/seed.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
